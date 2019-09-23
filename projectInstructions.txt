@@ -1,0 +1,20 @@
+Objective: You are to provide economic statistics by region as follows:
+• Total population for the region (sum of the column value) 
+• Total GDP for the region (sum of the fourth column) 
+• Average population in the region (total population / number of states in region) 
+• Average personal income (Total personal income / total population).  You need to derive a meaningful measurement for this statistic.  See the example below. 
+
+Your code must provide the following: 
+• Prompt the user for a region name. 
+• Read the data from the file selecting only the data for the region. 
+• Build three dictionaries for the region for the population, GDP, and personal income. The key for each dictionary is the State. • In the case where the user entered an invalid region, an appropriate error message should be displayed. Note, you will not know this until you've read through the file and found no data. 
+• Write a function called calc_total_pop is passed the population dictionary and returns the total population. You will obviously need to iterate through the dictionary to produce the total population. 
+• Write a function called calc_total_gdp that is passed the gdp dictionary and returns the total GDP. 
+• Write a function called calc_total_pi that is passed the personal income dictionary and returns the total personal income. 
+
+The output of your must be as follows: 
+• A sorted list (not python list) of states in the region. 
+• The Total population for the region.
+• The total GDP for the region. 
+• The average population of the region. 
+• The average personal income in the region. 

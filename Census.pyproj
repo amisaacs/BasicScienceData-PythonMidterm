@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>cf1bf8ce-aa34-4761-97fc-5676825e368b</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Census.py</StartupFile>
+    <StartupFile>tests_Census.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,9 +22,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Census.py" />
-    <Compile Include="TestCensus.py">
+    <Compile Include="tests_Census.py">
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="projectInstructions.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
