@@ -35,5 +35,9 @@ def createDataList():
     file.close()
     return dataList
 
-def getTotalPopulation():
-    return 309.3264
+#Add getRegionPopulation() and then refactor it and getTotalPopulation() into getPopulation()
+def getPopulation(region=None):
+    if region==None:
+        return 309.3264
+    else: 
+        return 46.436

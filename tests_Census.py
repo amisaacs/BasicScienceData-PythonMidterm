@@ -2,7 +2,8 @@ import unittest
 import Census
 
 class Test_tests_Census(unittest.TestCase):
-    #Range "Tests for 'Prompt the user for a region name. '"
+    #Region 
+    #"Tests for 'Prompt the user for a region name. '"
 
     def test_whenRegionNotFoundFalseReturned(self):
         self.assertFalse(Census.lookupRegion('Xela'))
@@ -20,7 +21,7 @@ class Test_tests_Census(unittest.TestCase):
     #However, still coding the functionality
     #def test_whenRegionNotFoundPromptForAnotherRegion(self):
 
-    #End Range
+    #End Region
 
 #TODO: #Range or #Region
 
@@ -33,8 +34,9 @@ class Test_tests_Census(unittest.TestCase):
     # Build three dictionaries for the region 
     # for the population, GDP, and personal income. 
     # The key for each dictionary is the State.
-    def test_totalPopulationIsCorrect(self):
-        self.assertEqual(Census.getTotalPopulation(),309.3264)
+    def test_populationIsCorrect(self):
+        self.assertEqual(Census.getPopulation(),309.3264)
+        self.assertEqual(Census.getPopulation("Great_Lakes"),46.436)
 
    
  
