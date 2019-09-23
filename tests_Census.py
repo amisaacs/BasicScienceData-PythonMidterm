@@ -25,8 +25,9 @@ class Test_tests_Census(unittest.TestCase):
 #TODO: #Range or #Region
 
     #Range "Tests for 'Read the data from the file selecting only the data for the region. '"
-    def test_whenRegionEnteredNumOfRecordForRegionReturned(self):
+    def test_whenValidRegionEnteredNumOfRecordForRegionReturned(self):
         self.assertEqual(Census.getNumOfRecordsForRegion("Great_Lakes"), 5)
+        self.assertEqual(Census.getNumOfRecordsForRegion("Far_West"), 6)
  
 
 if __name__ == '__main__':

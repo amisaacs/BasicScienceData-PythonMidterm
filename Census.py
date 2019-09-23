@@ -23,4 +23,12 @@ def getRegion():
     return region
 
 def getNumOfRecordsForRegion(region):
-    return 5
+    filename = "Economic_Data_2010.txt"
+    file = open(filename,'r')
+    count = 0
+    for record in file.readlines():
+        fields = record.split(',')
+        if(fields[1] == region):
+           count+=1 
+    file.close()
+    return count
