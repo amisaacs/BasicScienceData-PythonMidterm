@@ -3,7 +3,14 @@ def add(x,y):
 
 def lookupRegion(region):
     """Looks up region in data file."""
-    if region == 'Great_Lakes':
-        return "Great_Lakes"
-    else:
-        return False
+    filename = "Economic_Data_2010.txt"
+    file = open(filename,'r')
+    for record in file.readlines():
+        fields = record.split(',')
+        print (fields[1])
+        if(fields[1] == region):
+            file.close()
+            return fields[1]
+
+    file.close()
+    return False
