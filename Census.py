@@ -11,6 +11,12 @@ def lookupRegion(region):
         if(fields[1] == region):
             file.close()
             return fields[1]
-
     file.close()
     return False
+
+def getRegion():
+    region = input("Please enter region:")
+    region = lookupRegion(region)
+
+    while region==False:
+        region = input("'" + region+ "'"+ "was not found. Pls enter another region.")

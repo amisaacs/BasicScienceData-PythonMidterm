@@ -9,6 +9,15 @@ class Test_tests_Census(unittest.TestCase):
         self.assertEqual(Census.lookupRegion('Great_Lakes'),"Great_Lakes")
         self.assertEqual(Census.lookupRegion('Far_West'),"Far_West")
 
+    #I want to add the following test, but I really have no idea how to write
+    # a unit test that tests for a displayed message.
+    #However, I will write the functionality into lookupRegion()
+    #def test_whenRegionNotFoundErrorMessageDisplayed(self):
+
+    #Same here, I don't know how to test for this.
+    #However, still coding the functionality
+    #def test_whenRegionNotFoundPromptForAnotherRegion(self):
+ 
 
 if __name__ == '__main__':
     unittest.main()
