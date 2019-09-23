@@ -28,6 +28,15 @@ class Test_tests_Census(unittest.TestCase):
     def test_whenValidRegionEnteredNumOfRecordForRegionReturned(self):
         self.assertEqual(Census.getNumOfRecordsForRegion("Great_Lakes"), 5)
         self.assertEqual(Census.getNumOfRecordsForRegion("Far_West"), 6)
+    #End Range
+
+    # Build three dictionaries for the region 
+    # for the population, GDP, and personal income. 
+    # The key for each dictionary is the State.
+    def test_totalPopulationIsCorrect(self):
+        self.assertEqual(Census.getTotalPopulation(),309.3264)
+
+   
  
 
 if __name__ == '__main__':

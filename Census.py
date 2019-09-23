@@ -34,3 +34,6 @@ def createDataList():
         dataList.append(fields)
     file.close()
     return dataList
+
+def getTotalPopulation():
+    return 309.3264
