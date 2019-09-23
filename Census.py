@@ -3,15 +3,10 @@ def add(x,y):
 
 def lookupRegion(region):
     """Looks up region in data file."""
-    filename = "Economic_Data_2010.txt"
-    file = open(filename,'r')
-    for record in file.readlines():
-        fields = record.split(',')
-        print (fields[1])
-        if(fields[1] == region):
-            file.close()
-            return fields[1]
-    file.close()
+    dataList = createDataList()
+    for record in dataList:
+        if(record[1] == region ):
+            return record[1]
     return False
 
 def getRegion():
@@ -23,12 +18,19 @@ def getRegion():
     return region
 
 def getNumOfRecordsForRegion(region):
+    dataList = createDataList()
+    count=0
+    for record in dataList:
+        if(record[1] == region):
+           count+=1 
+    return count
+
+def createDataList():
     filename = "Economic_Data_2010.txt"
     file = open(filename,'r')
-    count = 0
+    dataList = []
     for record in file.readlines():
         fields = record.split(',')
-        if(fields[1] == region):
-           count+=1 
+        dataList.append(fields)
     file.close()
-    return count
+    return dataList
