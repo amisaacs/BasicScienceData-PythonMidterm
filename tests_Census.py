@@ -2,6 +2,8 @@ import unittest
 import Census
 
 class Test_tests_Census(unittest.TestCase):
+    #Range "Tests for 'Prompt the user for a region name. '"
+
     def test_whenRegionNotFoundFalseReturned(self):
         self.assertFalse(Census.lookupRegion('Xela'))
 
@@ -17,6 +19,14 @@ class Test_tests_Census(unittest.TestCase):
     #Same here, I don't know how to test for this.
     #However, still coding the functionality
     #def test_whenRegionNotFoundPromptForAnotherRegion(self):
+
+    #End Range
+
+#TODO: #Range or #Region
+
+    #Range "Tests for 'Read the data from the file selecting only the data for the region. '"
+    def test_whenRegionEnteredNumOfRecordForRegionReturned(self):
+        self.assertEqual(Census.getNumOfRecordsForRegion("Great_Lakes"), 5)
  
 
 if __name__ == '__main__':

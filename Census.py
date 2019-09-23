@@ -20,3 +20,7 @@ def getRegion():
 
     while region==False:
         region = input("'" + region+ "'"+ "was not found. Pls enter another region.")
+    return region
+
+def getNumOfRecordsForRegion(region):
+    return 5
