@@ -52,8 +52,11 @@ class Test_tests_Census(unittest.TestCase):
             self.assertAlmostEqual(Census.getRegionalPopulationn("Far_West"),52.6984)
 
         def test_GDPisCorrect(self):
-            self.assertEqual(Census.getGDP("Great_Lakes"),1776.04)
-            self.assertEqual(Census.getGDP("Far_West"),2367.11)
+            self.assertEqual(Census.getRegionalGDP("Great_Lakes"),1776.04)
+            self.assertEqual(Census.getRegionalGDP("Far_West"),2367.11)
+
+        def test_PersonalIncomeIsCorrect(self):
+            self.assertEqual(Census.getPI("Plains"),811.1269)
 
 if __name__ == '__main__':
     unittest.main()

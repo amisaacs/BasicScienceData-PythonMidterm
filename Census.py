@@ -42,6 +42,14 @@ def createRegionalGDPDictionary(region):
             gdpDict[record[0]]=record[3]
     return gdpDict
 
+def createPersonalIncomeDictionary(region):
+    datalist = createDataList()
+    piDict = {}
+    for record in piDict:
+        if record[1]==region:
+            piDict[record[0]]=record[3]
+    return piDict
+
 
 def getRegionalPopulation(region):
     popDict = createRegionalPopulationDictionary(region)
@@ -50,13 +58,21 @@ def getRegionalPopulation(region):
       
     return population
 
-def getGDP(region):
+def getRegionalGDP(region):
     dict = createRegionalGDPDictionary(region)
     gdp=0
     for record in dict:
         gdp+=float(record[3])
     
     return gdp
+
+def getRegionalPersonalIncome(region):
+    dict = createPersonalIncomeDictionary(region)
+    pi = 0
+    for record in dict:
+        pi+=float(record[4])
+
+    return pi
 #There is one record per state.
 #Iterating over the data and counting how many times the region appears,
 #   gives the number of states in a region
