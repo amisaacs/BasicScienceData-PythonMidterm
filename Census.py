@@ -9,6 +9,18 @@ def createDataList():
     file.close()
     return dataList
 
+#Create dictionaries for population, gdp and personal income by Region
+def createRegionalDictionaries(region):
+    datalist = createDataList()
+    populationDict = {}
+    gdpDict = {}
+    personalIncomeDict = {}
+    for record in datalist:
+        if record[1]==region:
+            populationDict[record[0]]=record[2]
+            gdpDict[record[0]]=record[3]
+            personalIncomeDict[record[0]]=record[4]
+    return populationDict,gpdDict, personalIncomeDict
 
 def getRegion():
     region = input("Please enter region:")
@@ -26,29 +38,7 @@ def lookupRegion(region):
             return record[1]
     return False
 
-def createRegionalPopulationDictionary(region):
-    datalist = createDataList()
-    populationDict = {}
-    for record in datalist:
-        if record[1]==region:
-            populationDict[record[0]]=record[2]
-    return populationDict
 
-def createRegionalGDPDictionary(region):
-    datalist = createDataList()
-    gdpDict = {}
-    for record in gdpDict:
-        if record[1]==region:
-            gdpDict[record[0]]=record[3]
-    return gdpDict
-
-def createPersonalIncomeDictionary(region):
-    datalist = createDataList()
-    piDict = {}
-    for record in piDict:
-        if record[1]==region:
-            piDict[record[0]]=record[3]
-    return piDict
 
 
 def getRegionalPopulation(region):
