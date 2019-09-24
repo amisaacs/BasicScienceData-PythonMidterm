@@ -34,14 +34,29 @@ def createRegionalPopulationDictionary(region):
             populationDict[record[0]]=record[2]
     return populationDict
 
+def createRegionalGDPDictionary(region):
+    datalist = createDataList()
+    gdpDict = {}
+    for record in gdpDict:
+        if record[1]==region:
+            gdpDict[record[0]]=record[3]
+    return gdpDict
 
-def getPopulation(region=None):
-    dict = createRegionalPopulationDictionary(region)
-    for record in dict:
+
+def getRegionalPopulation(region):
+    popDict = createRegionalPopulationDictionary(region)
+    for record in popDict:
         population += float(record[2])
       
     return population
 
+def getGDP(region):
+    dict = createRegionalGDPDictionary(region)
+    gdp=0
+    for record in dict:
+        gdp+=float(record[3])
+    
+    return gdp
 #There is one record per state.
 #Iterating over the data and counting how many times the region appears,
 #   gives the number of states in a region
@@ -57,11 +72,7 @@ def getNumOfStatesByRegion(region):
 
 
 
-def getGDP(region=None):
-    if region ==None:
-        return 12894.973 
-    else:
-        return 1776.04
+
 
 def getAvgRegionalPopulation(region):
     population = getPopulation(region)
