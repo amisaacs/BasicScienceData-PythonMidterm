@@ -2,7 +2,6 @@ import unittest
 import Census
 
 class Test_tests_Census(unittest.TestCase):
-    #Region 
     #"Tests for 'Prompt the user for a region name. '"
 
     def test_whenRegionNotFoundFalseReturned(self):
@@ -23,26 +22,31 @@ class Test_tests_Census(unittest.TestCase):
 
     #End Region
 
-#TODO: #Range or #Region
-
-    #Range "Tests for 'Read the data from the file selecting only the data for the region. '"
-    def test_whenValidRegionEnteredNumOfRecordForRegionReturned(self):
-        self.assertEqual(Census.getNumOfRecordsForRegion("Great_Lakes"), 5)
-        self.assertEqual(Census.getNumOfRecordsForRegion("Far_West"), 6)
-    #End Range
-
-    # Range Tests for ' Total population for the region (sum of the column value)
+    # Tests for avg population by region is calculated correctly  
+    def test_whenValidRegionEnteredCorrectNumberOfStatesIsReturned(self):
+        self.assertEqual(Census.getNumOfStatesByRegion("Great_Lakes"), 5)
+        self.assertEqual(Census.getNumOfStatesByRegion("Far_West"), 6)
+    
     def test_populationIsCorrect(self):
-        self.assertEqual(Census.getPopulation(),309.3264)
-        self.assertEqual(Census.getPopulation("Great_Lakes"),46.436)
+        self.assertAlmostEqual(Census.getPopulation(),309.3264)
+        self.assertAlmostEqual(Census.getPopulation("Great_Lakes"),46.436)
+        self.assertAlmostEqual(Census.getPopulation("Far_West"),52.6984)
 
-    #End Range
+    def test_numberOfStatesInRegionIsCorrect(self):
+        self.assertEqual(Census.getNumOfStatesByRegion("Great_Lakes"),5)
+        self.assertEqual(Census.getNumOfStatesByRegion("Far_West"), 6)
+        self.assertEqual(Census.getNumOfStatesByRegion("Plains"),7)
+ 
 
-    #Range Tests for 'Total GDP for the region (sum of the fourth column) '
+    def test_avgRegionalPopulationIsCorrect(self):
+        self.assertAlmostEqual(Census.getAvgRegionalPopulation("Great_Lakes"),9.2872)
+        self.assertAlmostEqual(Census.getAvgRegionalPopulation("Far_West"),8.78306667)
+ 
+
     def test_GDPisCorrect(self):
         self.assertEqual(Census.getGDP(),12894.973)
         self.assertEqual(Census.getGDP("Great_Lakes"),1776.04)
- 
+        self.assertEqual(Census.getGDP("Far_West"),2367.11)
 
 if __name__ == '__main__':
     unittest.main()
