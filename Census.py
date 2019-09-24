@@ -1,7 +1,22 @@
+#Read text file into a Python list
+def createDataList():
+    filename = "Economic_Data_2010.txt"
+    file = open(filename,'r')
+    dataList = []
+    for record in file.readlines():
+        fields = record.split(',')
+        dataList.append(fields)
+    file.close()
+    return dataList
 
 
-def add(x,y):
-    return x+y
+def getRegion():
+    region = input("Please enter region:")
+    region = lookupRegion(region)
+
+    while region==False:
+        region = input("'" + region+ "'"+ "was not found. Pls enter another region.")
+    return region
 
 def lookupRegion(region):
     """Looks up region in data file."""
@@ -11,13 +26,21 @@ def lookupRegion(region):
             return record[1]
     return False
 
-def getRegion():
-    region = input("Please enter region:")
-    region = lookupRegion(region)
+def createRegionalPopulationDictionary(region):
+    datalist = createDataList()
+    populationDict = {}
+    for record in datalist:
+        if record[1]==region:
+            populationDict[record[0]]=record[2]
+    return populationDict
 
-    while region==False:
-        region = input("'" + region+ "'"+ "was not found. Pls enter another region.")
-    return region
+
+def getPopulation(region=None):
+    dict = createRegionalPopulationDictionary(region)
+    for record in dict:
+        population += float(record[2])
+      
+    return population
 
 #There is one record per state.
 #Iterating over the data and counting how many times the region appears,
@@ -30,28 +53,9 @@ def getNumOfStatesByRegion(region):
            count+=1 
     return count
 
-def createDataList():
-    filename = "Economic_Data_2010.txt"
-    file = open(filename,'r')
-    dataList = []
-    for record in file.readlines():
-        fields = record.split(',')
-        dataList.append(fields)
-    file.close()
-    return dataList
 
 
-def getPopulation(region=None):
-    datalist = createDataList()
-    population = 0
-    for record in datalist:
-        if region == record[1]:
-            population += float(record[2])
-        else:
-            if(region == None):
-                population += float(record[2])
-       
-    return population
+
 
 def getGDP(region=None):
     if region ==None:
@@ -63,7 +67,13 @@ def getAvgRegionalPopulation(region):
     population = getPopulation(region)
     numOfStates = getNumOfStatesByRegion(region)
     return population/numOfStates
-  
+ 
+
+
+
+
+
+
 #This actually turns out to be a duplicate.
 #Above in getNumberofStateByRegion() number of records that
 #correspond to region are counted and there are as many records

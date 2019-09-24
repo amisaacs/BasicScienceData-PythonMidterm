@@ -27,10 +27,7 @@ class Test_tests_Census(unittest.TestCase):
         self.assertEqual(Census.getNumOfStatesByRegion("Great_Lakes"), 5)
         self.assertEqual(Census.getNumOfStatesByRegion("Far_West"), 6)
     
-    def test_populationIsCorrect(self):
-        self.assertAlmostEqual(Census.getPopulation(),309.3264)
-        self.assertAlmostEqual(Census.getPopulation("Great_Lakes"),46.436)
-        self.assertAlmostEqual(Census.getPopulation("Far_West"),52.6984)
+   
 
     def test_numberOfStatesInRegionIsCorrect(self):
         self.assertEqual(Census.getNumOfStatesByRegion("Great_Lakes"),5)
@@ -47,6 +44,16 @@ class Test_tests_Census(unittest.TestCase):
         self.assertEqual(Census.getGDP(),12894.973)
         self.assertEqual(Census.getGDP("Great_Lakes"),1776.04)
         self.assertEqual(Census.getGDP("Far_West"),2367.11)
+
+
+        #Build three dictionaries for the region for the population, GDP, and personal income. 
+        #The key for each dictionary is the State. 
+        #In the case where the user entered an invalid region, 
+        #an appropriate error message should be displayed. 
+        def test_populationIsCorrect(self):
+            self.assertAlmostEqual(Census.getPopulation(),309.3264)
+            self.assertAlmostEqual(Census.getPopulation("Great_Lakes"),46.436)
+            self.assertAlmostEqual(Census.getPopulation("Far_West"),52.6984)
 
 if __name__ == '__main__':
     unittest.main()
